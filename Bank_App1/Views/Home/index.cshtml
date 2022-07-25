@@ -1,0 +1,70 @@
+﻿@model List<Bank_App1.Models.UserTb>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.rtl.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="mt-3">
+
+        <div class="d-flex justify-content-end">
+
+            <a href="/Ration/Add" class="btn btn-warning rounded-pill">Add an Aplicant</a>
+            <a href="/Login/SignOut" class="btn btn-danger rounded-pill ">SignOut</a>
+        </div>
+
+        <table class="table table-striped" style="text-align:center">
+            <thead>
+                <div class="d-flex justify-content-center">
+
+                    <h2> Aplicants List </h2>
+                </div>
+            </thead>
+            <tr>
+                <th>UserNo</th>
+                <th>UserName</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>ContactNo</th>
+                <th>Status</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Reject</th>
+                <th>Delete</th>
+                <th>Update</th>
+
+            </tr>
+
+            @foreach (var applicant in Model)
+            {
+                <tr>
+                    <td>@applicant.UserNo</td>
+                    <td>@applicant.UserName</td>
+                    <td>@applicant.Age</td>
+                    <td>@applicant.Address</td>
+                    <td>@applicant.ContactNumber</td>
+                    <td>@applicant.Status</td>
+                    <td>@applicant.Role</td>
+
+                    <td><a href="/Ration/Approve/@applicant.UserNo" class="btn btn-success rounded-pill">Approve</a></td>
+                    <td><a href="/Ration/Reject/@applicant.UserNo" class="btn btn-danger rounded-pill">Reject</a></td>
+
+                    <td><a href="/Ration/Delete/@applicant.UserNo" class="btn btn-danger rounded-pill">Delete</a></td>
+                    <td><a href="/Ration/Edit/@applicant.UserNo" class="btn btn-dark rounded-pill">Update</a></td>
+
+
+                </tr>
+            }
+
+
+        </table>
+
+    </div>
+
+</body>
+</html>
